@@ -7,5 +7,5 @@ oc apply -k .
 Create secret:
 
 ```shell
-sed "s|PULL_SECRET|$(cat ~/root/pull-secret.json|base64)|" pull-secret.yaml |oc apply -f
+sed "s|PULL_SECRET|$(cat /root/pull-secret.json|base64 -w 0)|" pull-secret.yaml |oc apply -f -
 ```
