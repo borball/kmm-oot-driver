@@ -5,4 +5,4 @@ kind: Kustomization
 resources:
   - operator.yaml
   - containerfile-cm.yaml
-  - module.yaml
+  - module-build.yaml

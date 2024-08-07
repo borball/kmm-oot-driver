@@ -7,5 +7,6 @@ oc apply -k .
 Create secret:
 
 ```shell
-sed "s|PULL_SECRET|$(cat /root/pull-secret.json|base64 -w 0)|" pull-secret.yaml |oc apply -f -
+
+oc create -n openshift-kmm secret docker-registry pull-secret --docker-server=quay.io --docker-username=<> --docker-password=<>
 ```

@@ -2,7 +2,7 @@
 apiVersion: kmm.sigs.x-k8s.io/v1beta1
 kind: Module
 metadata:
-  name: kmm-ice-driver-1.14.13
+  name: kmm-ice-driver-1.14.13-install
   namespace: openshift-kmm
 spec:
   moduleLoader:
@@ -12,11 +12,7 @@ spec:
       kernelMappings:
         - regexp: '^.*\.x86_64$'
           containerImage: "quay.io/bzhai/kmm-ice-driver:${KERNEL_FULL_VERSION}-1.14.13"
-          build:
-            dockerfileConfigMap:
-              name: ice-driver-containerfile-cm-1.14.13
-            secrets:
-              - name: pull-secret
+      inTreeModuleToRemove: ice
   imageRepoSecret:
     name: pull-secret
   selector:
