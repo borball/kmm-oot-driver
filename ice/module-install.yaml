@@ -12,7 +12,6 @@ spec:
       kernelMappings:
         - regexp: '^.*\.x86_64$'
           containerImage: "quay.io/bzhai/kmm-ice-driver:${KERNEL_FULL_VERSION}-1.14.13"
-      inTreeModuleToRemove: ice
   imageRepoSecret:
     name: pull-secret
   selector:
