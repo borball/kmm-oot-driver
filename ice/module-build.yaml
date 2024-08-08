@@ -11,7 +11,7 @@ spec:
         moduleName: ice
       kernelMappings:
         - regexp: '^.*\.x86_64$'
-          containerImage: "quay.io/bzhai/kmm-ice-driver:${KERNEL_FULL_VERSION}-1.14.13"
+          containerImage: "quay.io/bzhai/kmm-ice-driver:${KERNEL_FULL_VERSION}"
           build:
             dockerfileConfigMap:
               name: ice-driver-containerfile-cm-1.14.13
