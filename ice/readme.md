@@ -16,19 +16,29 @@ oc create -n openshift-kmm secret docker-registry <pull_secret_name>
   --docker-email=<email>
 ```
 
-Create a Module to build the OOT driver image.
+Create a CM which contains the Dockerfile to build the driver image from source code 1.12.18. 
 
 ```shell
-oc apply -f module-build.yaml
+oc apply -f containerfile-cm-1.12.18.yaml
 ```
 
-Once the driver image is built successfully, the image will be pushed to the repo defined in module-build.yaml.
-
-Next step create a Module on the cluster(KMM shall be installed) where needs the OOT driver so that KMM operator 
-will unload the in-tree driver and install the OOT driver. 
+Another version from 1.14.13:
 
 ```shell
-oc apply -f module-install.yaml
+oc apply -f containerfile-cm-1.14.13.yaml
 ```
+
+Create a Module to build the OOT driver image for version 1.12.18.
+
+```shell
+oc apply -f module-build-1.12.18.yaml
+```
+
+Another module for version 1.14.13:
+
+```shell
+oc apply -f module-build-1.14.13.yaml
+```
+
 
 
