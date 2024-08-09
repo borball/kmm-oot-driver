@@ -1,5 +1,5 @@
 export MODULE_NAME=ice
-export MODULE_IMAGE_REPO=quay.io/bzhai/kmm-ice-driver
+export MODULE_IMAGE_REPO=quay.io/bzhai/kmm-ice-driver-1.12.18
 export SCRIPT_REPLACE_KERNEL_MODULE=$(cat replace-kernel-module.sh|base64 -w 0)
 export SCRIPT_PULL_OOT_IMAGE=$(cat pull-image.sh|base64 -w 0)
 export SCRIPT_WAIT_FOR_DISPATCHER=$(cat wait-for-dispatcher.sh|base64 -w 0)
