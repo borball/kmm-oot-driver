@@ -24,17 +24,12 @@ if [ -e $kernel_module_image_filepath ]; then
     echo "Image file $kernel_module_image_filepath found on the local file system, creating kmm config file"
     create_kmm_config
     echo "running kernel-management worker image"
-    echo "removing module irdma"
-    modprobe -r irdma
     podman run --user=root --privileged -v /lib/modules:/lib/modules -v $kmm_config_file_filepath:/etc/kmm-worker/config.yaml -v $kernel_module_image_filepath:$kernel_module_image_filepath $worker_image kmod load --tarball /etc/kmm-worker/config.yaml
     if [ $? -eq 0 ]; then
         echo "OOT kernel module $kernel_module is inserted"
     else
         echo "failed to insert OOT kernel module $kernel_module"
     fi
-
-    echo "adding module irdma back"
-    modprobe irdma
 else
     echo "Image file $kernel_module_image_filepath is not present in local registry, will try after reboot"
 fi
