@@ -9,7 +9,7 @@ oc apply -f operator.yaml
 Create a pull secret which will be used to pull/push the OOT driver image.
 
 ```shell
-oc create -n openshift-kmm secret docker-registry <pull_secret_name> 
+oc create -n openshift-kmm secret docker-registry pull-secret 
   --docker-server=<registry_server> 
   --docker-username=<user_name> 
   --docker-password=<password> 
